@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<!-- 
+    Yasin Mohammadzadeh (github.com/Yasinmhmmdzd)
+-->
+<html lang="fa_IR" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مرورگر آنلاین تحت وب</title>
+    <link rel="stylesheet" href="./assets/css/fontawesome.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+
+<body onload="get_Date() , get_Data()">
+    <div class="app">
+        <!-- header start -->
+        <header>
+            <!-- responsive menu start -->
+            <i class="fas fa-bars burger-menu-icon hidden" onclick="openBurgerMenu()"></i>
+            <div class="burger-menu hidden">
+                <ul class="header-burger-menu-list">
+                    <li><i class="fas fa-times close-burger-menu" onclick="closeBurgerMenu()"></i></li>
+                    <li onclick="openHomePage()">صفحه اصلی</li>
+                    <li onclick="openWeatherPage()">آب و هوا</li>
+                    <li onclick="openSettingPage()">تنظیمات</li>
+                    <li onclick="openAboutPage()">درباره ما</li>
+                </ul>
+                <h1 class="responsive-logo">مرورگر آنلاین تحت وب</h1>
+            </div>
+            <!-- responsive menu end -->
+            <ul class="header-list">
+                <li class="active-menu-item nav-item-first" onclick="openHomePage()">صفحه اصلی</li>
+                <li class="nav-item-second" onclick="openWeatherPage()">آب و هوا</li>
+                <li class="nav-item-third" onclick="openSettingPage()">تنظیمات</li>
+                <li class="nav-item-fourth" onclick="openAboutPage()">درباره ما</li>
+            </ul>
+            <span class="date-part"></span>
+        </header>
+        <!-- header end -->
+        <!-- home page start -->
+        <div class="home-page active-block">
+            <div class="home-page-header">
+                <h2>مرورگر آنلاین تحت وب</h2>
+            </div>
+            <div class="search-input-container">
+                <input type="text" placeholder="جستجوکنید..." class="search-input" autofocus>
+                <button type="button" class="search-button" onclick="startSearch()">
+                    <i class="fas fa-search" title="جستجو"></i>
+                </button>
+            </div>
+        </div>
+        <!-- home page end -->
+        <!-- weather page start -->
+        <div class="weather-page hidden">
+            <h2 class="weather-page-title">نام شهر مورد نظر خودرا به صورت انگلیسی واردکنید</h2>
+            <div class="search-input-container">
+                <input type="text" placeholder="نام شهر را انگلیسی واردکنید" class="weather-search-input" autofocus>
+                <button type="button" class="weather-search-button" onclick="checkWeahter()">
+                    <i class="fas fa-search" title="جستجو"></i>
+                </button>
+            </div>
+            <div class="status-box box">
+                <p class="message">منتظر وارد کردن شهر هستیم</p>
+                <div class="informations">
+                    <p id="temp-c"></p>
+                    <p id="temp-f"></p>
+                    <p id="state-province"></p>
+                    <p id="region"></p>
+                    <img src="./assets/image/map_icon.png" alt="map-icon" class="map-icon">
+                </div>
+            </div>
+        </div>
+        <!-- weathre page end -->
+        <!-- setting page start -->
+        <div class="setting-page hidden">
+            <h2>تنظیمات</h2>
+            <div class="setting-box box">
+                <h2>نوع پس زمینه را انتخاب کنید</h2>
+                <div class="theme-btn-container">
+                    <button type="button" class="theme-btn box" onclick="lightMode()"><i class="fas fa-sun"></i>  روشن(پیش فرض)</button>
+                    <button type="button" class="theme-btn box" onclick="darkMode()"><i class="fas fa-moon"></i>  تاریک</button>
+                </div>
+            </div>
+            <div class="search-engine-box box">
+                <h2>موتور جستجوی موردنظر را انتخاب نمایید</h2>
+                <select name="search-engine" class="search-engine-select box" id="search-engine">
+                    <option value="google">گوگل (پیش فرض)</option>
+                    <option value="bing">مایکروسافت بینگ</option>
+                </select>
+            </div>
+            <div class="fonts-setting box">
+                <h2>تنظیمات فونت</h2>
+                <select name="font-family" id="font-family" class="font-family-select box">
+                    <option value="vazir">وزیر (پیش فرض)</option>
+                    <option value="iransans">ایران سنس</option>
+                    <option value="tanha">تنها</option>
+                </select>
+            </div>
+            <div class="save-setting-box box">
+                <h2>ذخیره تغییرات</h2>
+                <button class="save-changes box" onclick="saveSetting()">ذخیره تغییرات</button>
+            </div>
+        </div>
+        <!-- setting page end -->
+        <!-- about page start -->
+        <div class="about-us-page hidden">
+            <div class="about-desc box">
+                <h2>درباره ما</h2>
+                <p class="about-us-para">
+                    یاسین محمدزاده هستم . برنامه نویس وب
+                </p>
+            </div>
+            <div class="abilities box">
+                <h2>مهارت ها</h2>
+                <label for="html">html</label>
+                <progress value="80" max="100" id="html" class="html-progress"></progress>
+                <br>
+                <label for="css">css</label>
+                <progress value="70" max="100" id="css" class="css-progress"></progress>
+                <br>
+                <label for="js">js</label>
+                <progress max="100" value="40" id="js" class="js-progress"></progress>
+            </div>
+            <div class="social-media-follow box">
+                <h2>ما را در فضای مجازی دنبال کنید</h2>
+                <div class="icons-container">
+                    <a href="https://instagram.com/yasin.mhmmdzd" target="_blank" title="اینستاگرام"><i
+                            class="fab fa-instagram"></i></a>
+                    <a href="https://t.me/yasin_mzd" target="_blank" title="تلگرام"><i class="fab fa-telegram"></i></a>
+                    <a href="https://github.com/yasinmhmmdzd" target="_blank" title="گیت هاب"><i
+                            class="fab fa-github"></i></a>
+                    <a href="cal:+989157045478" target="_blank" title="تماس"><i class="fas fa-phone-alt"></i></a>
+                    <a href="mailto:yasinmohammadzade85@gmail.com" target="_blank" title="ایمیل"><i
+                            class="fab fa-google"></i></a>
+                </div>
+            </div>
+        </div>
+        <!-- about page end -->
+    </div>
+    <script src="./assets/js/persian-date.js"></script>
+    <script src="./assets/js/all.js"></script>
+    <script src="./assets/js/app.js"></script>
+</body>
+
+</html>
