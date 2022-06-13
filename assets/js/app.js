@@ -207,6 +207,15 @@ async function checkWeahter() {
                 region_province_html.innerHTML = "استان / ایالت :" + new_region
                 country_html.innerHTML = "کشور : " + new_country
                 status_image_html.setAttribute("src", "https:" + status_image)
+                Notification.requestPermission()
+                    .then(function showWeatherNotif() {
+                        let weather_notif = new Notification(
+                            city_name.value, {
+                            body: temp_ca,
+                            icon: status_image
+                        }
+                        )
+                    })
             }
         }
     }
