@@ -146,7 +146,7 @@ let search = document.querySelector(".search-input")
 function startSearch() {
     let search_engine = localStorage.getItem("search-engine")
     const url_google = "https://google.com/search?q=" + search.value
-    const url_bing = "https:/bing.com/search?q=" + search.value
+    const url_bing = "https://bing.com/search?q=" + search.value
     if(search_engine == "google"){
     window.open(url_google, '_self')
     }
