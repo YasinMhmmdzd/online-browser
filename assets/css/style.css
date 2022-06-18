@@ -2,20 +2,20 @@
 /* import fonts start */
 @font-face {
     font-family: vazir;
-    src: url("../font/vazir.woff2");
+    src: url("../fonts/vazir.woff2");
 }
 
 @font-face {
     font-family: cinema;
-    src: url("../font/cinema.ttf");
+    src: url("../fonts/cinema.ttf");
 }
 @font-face {
     font-family: tanha;
-    src: url("../font/Tanha.woff");
+    src: url("../fonts/Tanha.woff");
 }
 @font-face {
     font-family: iransans;
-    src: url("../font/Iransans.ttf");
+    src: url("../fonts/Iransans.ttf");
 }
 
 /* import fonts end */
