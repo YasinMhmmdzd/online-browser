@@ -180,7 +180,7 @@ async function checkWeahter() {
     let region_province_html = document.getElementById("state-province")
     let country_html = document.getElementById("region")
     let status_image_html = document.querySelector(".map-icon")
-    let key = "56cf9f35a7c447a4b0384546222305"
+    let key = Your Token With String Format
     let weather_url = await fetch(`http://api.weatherapi.com/v1/current.json?key=${key}&q=${city_name.value}`)
     let data = await weather_url.json()
     if (navigator.onLine) {
