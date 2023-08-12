@@ -162,64 +162,64 @@ search.addEventListener("keypress", function (event) {
 });
 // home page scripts end
 //weather page scripts start
-let weather_search_input = document.querySelector(".weather-search-input")
-weather_search_input.addEventListener("keypress", function (event) {
-    if (event.key === "Enter") {
-        event.preventDefault()
-        document.querySelector(".weather-search-button").click()
-    }
-});
-async function checkWeahter() {
-    let message = document.querySelector(".message")
-    let infos = document.querySelector(".informations")
-    message.classList.add("loadinganim")
-    message.innerHTML = "درحال یافتن اطلاعات..."
-    let city_name = document.querySelector(".weather-search-input")
-    let temp_html_c = document.getElementById("temp-c")
-    let temp_html_f = document.getElementById("temp-f")
-    let region_province_html = document.getElementById("state-province")
-    let country_html = document.getElementById("region")
-    let status_image_html = document.querySelector(".map-icon")
-    let key = Your Token With String Format
-    let weather_url = await fetch(`http://api.weatherapi.com/v1/current.json?key=${key}&q=${city_name.value}`)
-    let data = await weather_url.json()
-    if (navigator.onLine) {
-        if (data) {
-            message.classList.remove("loadinganim")
-            if (data.error) {
-                infos.classList.add("hidden")
-                message.classList.add("danger")
-                console.clear()
-                message.innerHTML = "متاسفانه شهر موردنظر شما پیدا نشد   :("
-            }
-            else {
-                message.classList.remove("danger")
-                message.classList.add("success")
-                infos.classList.remove("hidden")
-                let temp_ca = parseInt(data.current.temp_c)
-                let temp_fa = parseInt(data.current.temp_f)
-                let new_region = data.location.region
-                let new_country = data.location.country
-                let status_image = data.current.condition.icon
-                message.innerHTML = city_name.value
-                temp_html_c.innerHTML = "دمای هوا (سانتی گراد) : " + temp_ca + " درجه"
-                temp_html_f.innerHTML = "دمای هوا (فارنهایت) : " + temp_fa + " درجه"
-                region_province_html.innerHTML = "استان / ایالت :" + new_region
-                country_html.innerHTML = "کشور : " + new_country
-                status_image_html.setAttribute("src", "https:" + status_image)
-                Notification.requestPermission()
-                    .then(function showWeatherNotif() {
-                        let weather_notif = new Notification(
-                            city_name.value, {
-                            body: temp_ca,
-                            icon: status_image
-                        }
-                        )
-                    })
-            }
-        }
-    }
-}
+// let weather_search_input = document.querySelector(".weather-search-input")
+// weather_search_input.addEventListener("keypress", function (event) {
+//     if (event.key === "Enter") {
+//         event.preventDefault()
+//         document.querySelector(".weather-search-button").click()
+//     }
+// });
+// async function checkWeahter() {
+//     let message = document.querySelector(".message")
+//     let infos = document.querySelector(".informations")
+//     message.classList.add("loadinganim")
+//     message.innerHTML = "درحال یافتن اطلاعات..."
+//     let city_name = document.querySelector(".weather-search-input")
+//     let temp_html_c = document.getElementById("temp-c")
+//     let temp_html_f = document.getElementById("temp-f")
+//     let region_province_html = document.getElementById("state-province")
+//     let country_html = document.getElementById("region")
+//     let status_image_html = document.querySelector(".map-icon")
+//     let key = Your Token With String Format
+//     let weather_url = await fetch(`http://api.weatherapi.com/v1/current.json?key=${key}&q=${city_name.value}`)
+//     let data = await weather_url.json()
+//     if (navigator.onLine) {
+//         if (data) {
+//             message.classList.remove("loadinganim")
+//             if (data.error) {
+//                 infos.classList.add("hidden")
+//                 message.classList.add("danger")
+//                 console.clear()
+//                 message.innerHTML = "متاسفانه شهر موردنظر شما پیدا نشد   :("
+//             }
+//             else {
+//                 message.classList.remove("danger")
+//                 message.classList.add("success")
+//                 infos.classList.remove("hidden")
+//                 let temp_ca = parseInt(data.current.temp_c)
+//                 let temp_fa = parseInt(data.current.temp_f)
+//                 let new_region = data.location.region
+//                 let new_country = data.location.country
+//                 let status_image = data.current.condition.icon
+//                 message.innerHTML = city_name.value
+//                 temp_html_c.innerHTML = "دمای هوا (سانتی گراد) : " + temp_ca + " درجه"
+//                 temp_html_f.innerHTML = "دمای هوا (فارنهایت) : " + temp_fa + " درجه"
+//                 region_province_html.innerHTML = "استان / ایالت :" + new_region
+//                 country_html.innerHTML = "کشور : " + new_country
+//                 status_image_html.setAttribute("src", "https:" + status_image)
+//                 Notification.requestPermission()
+//                     .then(function showWeatherNotif() {
+//                         let weather_notif = new Notification(
+//                             city_name.value, {
+//                             body: temp_ca,
+//                             icon: status_image
+//                         }
+//                         )
+//                     })
+//             }
+//         }
+//     }
+// }
 //weather page scripts end
 //setting page scripts start
 function lightMode(){
